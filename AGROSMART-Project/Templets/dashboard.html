@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | AgroSmart</title>  
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body>
+
+<!-- ===== SIDEBAR ===== -->
+<div class="sidebar">
+  <h2>🌾 AgroSmart</h2>
+  <ul>
+    <li><a href="{{ url_for('dashboard') }}">📊 Dashboard</a></li>
+<li><a href="{{ url_for('weather') }}">🌦 Weather</a></li>
+<li><a href="{{ url_for('crop_advisor') }}">🌱 Crop Advisor</a></li>
+<li><a href="{{ url_for('irrigation') }}">💧 Irrigation</a></li>
+<li><a href="{{ url_for('yield_calculator') }}">📈 Yield Calculator</a></li>
+<li><a href="{{ url_for('ai_diagnosis') }}">🌿 AI Diagnosis</a></li>
+<li><a href="{{ url_for('profile') }}" class="active">👨‍🌾 Profile</a></li>
+  </ul>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="main">
+
+  <!-- 🔥 YOUR ORIGINAL SECTION -->
+  <h1 id="welcomeText">🙏 Namaste!</h1>
+
+  <div class="status green">
+    ✅ Favorable Farming Conditions
+  </div>
+
+  <p class="info-text">
+    🌱 Weather and soil conditions are suitable. Continue regular farming activities.
+  </p>
+
+  <div class="features">
+    <a href="{{ url_for('weather') }}">🌦 Weather</a>
+    <a href="{{ url_for('crop_advisor') }}">🌾 Crops</a>
+    <a href="{{ url_for('irrigation') }}">💧 Irrigation</a>
+    <a href="{{ url_for('yield_calculator') }}">📊 Calculator</a>
+    <a href="{{ url_for('ai_diagnosis') }}">🧠 Diagnosis</a>    
+  </div>
+
+  <!-- ===== INFO CARDS ===== -->
+  <div class="card-row">
+
+    <div class="card">
+      <h3>👨‍🌾 Farmer Info</h3>
+      <p><b>Name:</b> <span id="farmerName">Farmer</span></p>
+      <p><b>Village:</b> Baramati</p>
+      <p><b>Farm Size:</b> 5 Acres</p>
+    </div>
+
+    <div class="card">
+      <h3>🌦 Weather Today</h3>
+      <p>🌡 Temp: 32°C</p>
+      <p>💧 Humidity: 68%</p>
+      <p>🌧 Rain: 20%</p>
+    </div>
+
+    <div class="card green-card">
+      <h3>🌱 Crop Health</h3>
+      <p>✅ Healthy</p>
+      <p>No disease detected</p>
+    </div>
+
+  </div>
+
+  <!-- ===== ALERT ===== -->
+  <div class="alert-box">
+    🚨 Heatwave expected in next 3 days. Ensure proper irrigation.
+  </div>
+
+  <!-- ===== IMAGES ===== -->
+  <div class="image-section">
+    <img src="https://cdn.downtoearth.org.in/library/large/2023-12-01/0.77837400_1701415977_istock-503646746.jpg">
+    <img src="https://png.pngtree.com/background/20230612/original/pngtree-field-showing-green-crops-in-the-twilight-picture-image_3188247.jpg">
+    <img src="https://img.freepik.com/premium-photo/many-man-hands-hold-plant-seed-soil_1174648-941.jpg">
+  </div>
+
+</div>
+
+<!-- ===== SCRIPT ===== -->
+<script>
+window.onload = function () {
+  let name = localStorage.getItem("farmerName");
+
+  if (name) {
+    document.getElementById("welcomeText").innerHTML =
+      "🙏 Namaste, <span style='color:#2e7d32'>" + name + "</span>!";
+    document.getElementById("farmerName").innerText = name;
+  }
+};
+</script>
+
+</body>
+</html>

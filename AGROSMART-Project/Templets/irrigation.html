@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💧 Irrigation - AgroSmart</title>    
+    <link rel="stylesheet" href="{{ url_for('static', filename='irrigation.css') }}">
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h2>🌾 AgroSmart</h2>
+    <ul>
+        <li><a href="{{ url_for('dashboard') }}">📊 Dashboard</a></li>
+<li><a href="{{ url_for('weather') }}">🌦 Weather</a></li>
+<li><a href="{{ url_for('crop_advisor') }}">🌱 Crop Advisor</a></li>
+<li><a href="{{ url_for('irrigation') }}">💧 Irrigation</a></li>
+<li><a href="{{ url_for('yield_calculator') }}">📈 Yield Calculator</a></li>
+<li><a href="{{ url_for('ai_diagnosis') }}">🌿 AI Diagnosis</a></li>
+<li><a href="{{ url_for('profile') }}" class="active">👨‍🌾 Profile</a></li>
+    </ul>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+    <h1>💧 Smart Irrigation Advisor</h1>
+    <p class="info-text">
+        Get irrigation advice based on soil moisture and weather condition.
+    </p>
+
+    <div class="box">
+        <label>🌾 Select Crop</label>
+        <select id="crop">
+            <option>Wheat</option>
+            <option>Rice</option>
+            <option>Maize</option>
+            <option>Cotton</option>
+        </select>
+
+        <label>🌱 Soil Moisture (%)</label>
+        <input type="number" id="moisture" placeholder="Eg: 45">
+
+        <label>🌦 Weather Condition</label>
+        <select id="weather">
+            <option>Dry</option>
+            <option>Normal</option>
+            <option>Rainy</option>
+        </select>
+
+        <button onclick="checkIrrigation()">💦 Check Irrigation Need</button>
+    </div>
+
+    <div class="box result">
+        <h3>✅ Irrigation Recommendation</h3>
+        <p id="resultText">Enter values to get advice.</p>
+    </div>
+</div>
+
+<script>
+function checkIrrigation() {
+    let crop = document.getElementById("crop").value;
+    let moisture = parseInt(document.getElementById("moisture").value);
+    let weather = document.getElementById("weather").value;
+    let msg = "";
+
+    if (isNaN(moisture)) {
+        msg = "⚠️ Please enter soil moisture value.";
+    }
+    else if (moisture < 30) {
+        msg = "💧 Soil is very dry.<br>🚿 Immediate irrigation required.";
+    }
+    else if (moisture <= 60) {
+        if (weather === "Dry") {
+            msg = "💧 Moderate moisture.<br>🚿 Light irrigation recommended.";
+        } else {
+            msg = "✅ Soil moisture is sufficient.<br>🌦 Monitor weather.";
+        }
+    }
+    else {
+        msg = "💦 Soil is wet.<br>❌ No irrigation needed.";
+    }
+
+    document.getElementById("resultText").innerHTML =
+        `🌾 Crop: <b>${crop}</b><br>` + msg;
+}
+</script>
+
+</body>
+</html>

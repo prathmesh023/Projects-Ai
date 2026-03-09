@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather | AgroSmart</title>  
+  <link rel="stylesheet" href="{{ url_for('static', filename='weather.css') }}">
+</head>
+<body>
+
+  <!-- ===== SIDEBAR ===== -->
+  <div class="sidebar">
+    <h2>🌾 AgroSmart</h2>
+    <ul>    
+
+      <li><a href="{{ url_for('dashboard') }}">📊 Dashboard</a></li>
+<li><a href="{{ url_for('weather') }}">🌦 Weather</a></li>
+<li><a href="{{ url_for('crop_advisor') }}">🌱 Crop Advisor</a></li>
+<li><a href="{{ url_for('irrigation') }}">💧 Irrigation</a></li>
+<li><a href="{{ url_for('yield_calculator') }}">📈 Yield Calculator</a></li>
+<li><a href="{{ url_for('ai_diagnosis') }}">🌿 AI Diagnosis</a></li>
+<li><a href="{{ url_for('profile') }}" class="active">👨‍🌾 Profile</a></li>
+
+    </ul>
+  </div>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <div class="main">
+
+    <h1>🌦 Weather Forecast</h1>
+    <p class="info-text">
+      Accurate weather insights to help plan irrigation, sowing, and harvesting.
+    </p>
+
+    <!-- ===== TODAY WEATHER ===== -->
+    <div class="weather-box">
+      <h2>📍 Today's Weather</h2>
+      <div class="weather-stats">
+        <div>🌡 Temperature: <b>32°C</b></div>
+        <div>💧 Humidity: <b>65%</b></div>
+        <div>🌧 Rainfall: <b>5 mm</b></div>
+        <div>🌬 Wind Speed: <b>10 km/h</b></div>
+      </div>
+    </div>
+
+    <!-- ===== 7 DAY FORECAST ===== -->
+    <div class="weather-box">
+      <h2>📅 7-Day Forecast</h2>
+
+      <table class="weather-table">
+        <tr>
+          <th>Day</th>
+          <th>Condition</th>
+          <th>Temp (°C)</th>
+          <th>Rain</th>
+          <th>Humidity</th>
+        </tr>
+        <tr>
+          <td>Monday</td>
+          <td>☀️ Sunny</td>
+          <td>34</td>
+          <td>0 mm</td>
+          <td>55%</td>
+        </tr>
+        <tr>
+          <td>Tuesday</td>
+          <td>🌤 Partly Cloudy</td>
+          <td>33</td>
+          <td>2 mm</td>
+          <td>60%</td>
+        </tr>
+        <tr>
+          <td>Wednesday</td>
+          <td>🌧 Rainy</td>
+          <td>30</td>
+          <td>12 mm</td>
+          <td>70%</td>
+        </tr>
+        <tr>
+          <td>Thursday</td>
+          <td>🌧 Rainy</td>
+          <td>29</td>
+          <td>15 mm</td>
+          <td>75%</td>
+        </tr>
+        <tr>
+          <td>Friday</td>
+          <td>⛅ Cloudy</td>
+          <td>31</td>
+          <td>4 mm</td>
+          <td>65%</td>
+        </tr>
+        <tr>
+          <td>Saturday</td>
+          <td>☀️ Sunny</td>
+          <td>35</td>
+          <td>0 mm</td>
+          <td>50%</td>
+        </tr>
+        <tr>
+          <td>Sunday</td>
+          <td>🌤 Partly Cloudy</td>
+          <td>33</td>
+          <td>1 mm</td>
+          <td>58%</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- ===== FARMER ADVICE ===== -->
+    <div class="weather-box advice">
+      🌱 <b>Farming Advice:</b>  
+      Moderate rainfall expected mid-week. Avoid irrigation on rainy days and ensure proper drainage.
+    </div>
+
+  </div>
+
+</body>
+</html>

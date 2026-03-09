@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AgroSmart | Farm Profile</title>    
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>🌱 AgroSmart</h1>
+    <p>🤖 Intelligent Farming Assistant</p>
+</header>
+
+<div class="form-wrapper">
+    <h2>👨‍🌾 Create Your Farm Profile</h2>
+    <p class="subtext">Enter your farm details to get personalized recommendations</p>
+
+    <form onsubmit="login(event)">
+
+        <label>Full Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+
+        <label>Location / Village</label>
+        <input type="text" id="location" placeholder="Enter your village/city">
+
+        <label>Phone Number</label>
+        <input type="tel" id="phone" placeholder="Enter phone number">
+
+        <div class="row">
+            <div>
+                <label>Farm Size (acres)</label>
+                <input type="number" id="farmSize" placeholder="0">
+            </div>
+            <div>
+                <label>Soil pH</label>
+                <input type="number" id="soilPh" step="0.1" placeholder="7">
+            </div>
+        </div>
+
+        <label>Soil Type</label>
+        <select id="soilType">
+            <option>Black Soil</option>
+            <option>Red Soil</option>
+            <option>Alluvial Soil</option>
+            <option>Laterite Soil</option>
+        </select>
+
+        <button type="submit">✅ Create Profile & Continue</button>
+    </form>
+</div>
+
+<script>
+function login(event) {
+    event.preventDefault();
+
+    // ✅ collect values
+    localStorage.setItem("name", document.getElementById("name").value);
+    localStorage.setItem("location", document.getElementById("location").value);
+    localStorage.setItem("phone", document.getElementById("phone").value);
+    localStorage.setItem("farmSize", document.getElementById("farmSize").value);
+    localStorage.setItem("soilPh", document.getElementById("soilPh").value);
+    localStorage.setItem("soilType", document.getElementById("soilType").value);
+
+    // ✅ redirect
+    window.location.href = "{{ url_for('dashboard') }}";
+}
+</script>
+
+</body>
+</html>

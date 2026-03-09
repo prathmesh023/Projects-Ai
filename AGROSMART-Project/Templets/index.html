@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to AgroSmart</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body style="background: url('https://wallpaperaccess.com/full/137487.jpg') no-repeat center center fixed; background-size: cover;">
+
+  <div class="welcome">
+    <h3>Welcome to AgroSmart 🌾</h3>
+    <p>Your Smart Farming Assistant</p>
+    <a href="{{ url_for('login') }}" class="btn">Enter Login Page</a>
+  </div>
+
+</body>
+</html>

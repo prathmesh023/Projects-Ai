@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Diagnosis - AgroSmart</title>    
+    <link rel="stylesheet" href="{{ url_for('static', filename='ai_diagnosis.css') }}">
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h2>🌾 AgroSmart</h2>
+    <ul>
+        <li><a href="{{ url_for('dashboard') }}">📊 Dashboard</a></li>
+<li><a href="{{ url_for('weather') }}">🌦 Weather</a></li>
+<li><a href="{{ url_for('crop_advisor') }}">🌱 Crop Advisor</a></li>
+<li><a href="{{ url_for('irrigation') }}">💧 Irrigation</a></li>
+<li><a href="{{ url_for('yield_calculator') }}">📈 Yield Calculator</a></li>
+<li><a href="{{ url_for('ai_diagnosis') }}">🌿 AI Diagnosis</a></li>
+<li><a href="{{ url_for('profile') }}" class="active">👨‍🌾 Profile</a></li>
+    </ul>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+    <h1>🧠 AI Crop Disease Diagnosis</h1>
+    <p>Upload a crop leaf image to detect possible disease.</p>
+
+    <input type="file" id="imageInput" accept="image/*">
+    <button id="diagnoseBtn">🔍 Diagnose</button>
+
+    <div id="diagnosisResult"></div>
+</div>
+
+<!-- SCRIPT -->
+<script>
+document.getElementById("diagnoseBtn").addEventListener("click", function () {
+    const imageInput = document.getElementById("imageInput");
+    const result = document.getElementById("diagnosisResult");
+
+    if (imageInput.files.length === 0) {
+        result.innerText = "❌ Please upload a crop leaf image.";
+        return;
+    }
+
+    // Offline simulated AI result
+    const diseases = [
+        "✅ Healthy Crop",
+        "⚠ Leaf Blight detected – Use Copper Fungicide",
+        "⚠ Powdery Mildew detected – Use Sulfur Spray",
+        "⚠ Leaf Rust detected – Use Mancozeb"
+    ];
+
+    const randomResult = diseases[Math.floor(Math.random() * diseases.length)];
+    result.innerText = randomResult;
+});
+</script>
+
+</body>
+</html>

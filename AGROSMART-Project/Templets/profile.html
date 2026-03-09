@@ -1,0 +1,148 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>👨‍🌾 Profile | AgroSmart</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+<div class="profile-box">
+    <h1>👨‍🌾 Farmer Profile</h1>
+    <p class="subtitle">Login details</p>
+
+    <div class="info">
+        <span>Name</span>
+        <p id="name"></p>
+    </div>
+
+    <div class="info">
+        <span>Location</span>
+        <p id="location"></p>
+    </div>
+
+    <div class="info">
+        <span>Phone</span>
+        <p id="phone"></p>
+    </div>
+
+    <div class="info">
+        <span>Farm Size</span>
+        <p id="farmSize"></p>
+    </div>
+
+    <div class="info">
+        <span>Soil pH</span>
+        <p id="soilPh"></p>
+    </div>
+
+    <div class="info">
+        <span>Soil Type</span>
+        <p id="soilType"></p>
+    </div>
+</div>
+
+<script>
+document.getElementById("name").innerText = localStorage.getItem("name") || "—";
+document.getElementById("location").innerText = localStorage.getItem("location") || "—";
+document.getElementById("phone").innerText = localStorage.getItem("phone") || "—";
+document.getElementById("farmSize").innerText =
+    (localStorage.getItem("farmSize") || "—") + " acres";
+document.getElementById("soilPh").innerText = localStorage.getItem("soilPh") || "—";
+document.getElementById("soilType").innerText = localStorage.getItem("soilType") || "—";
+</script>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>👨‍🌾 Profile | AgroSmart</title>
+
+    <!-- Sidebar + common styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+    <!-- Profile-only styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
+
+</head>
+<body>
+
+<!-- ===== SIDEBAR ===== -->
+<div class="sidebar">
+    <h2>🌾 AgroSmart</h2>
+    <ul>
+        <li><a href="{{ url_for('dashboard') }}">📊 Dashboard</a></li>
+<li><a href="{{ url_for('weather') }}">🌦 Weather</a></li>
+<li><a href="{{ url_for('crop_advisor') }}">🌱 Crop Advisor</a></li>
+<li><a href="{{ url_for('irrigation') }}">💧 Irrigation</a></li>
+<li><a href="{{ url_for('yield_calculator') }}">📈 Yield Calculator</a></li>
+<li><a href="{{ url_for('ai_diagnosis') }}">🌿 AI Diagnosis</a></li>
+<li><a href="{{ url_for('profile') }}" class="active">👨‍🌾 Profile</a></li>
+
+    </ul>
+</div>
+
+<!-- ===== MAIN PROFILE CONTENT ===== -->
+<div class="main">
+    <div class="profile-box">
+        <h1>👨‍🌾 Farmer Profile</h1>
+        <p class="subtitle">Login details</p>
+
+        <div class="info">
+            <span>Name</span>
+            <p id="name"></p>
+        </div>
+
+        <div class="info">
+            <span>Location</span>
+            <p id="location"></p>
+        </div>
+
+        <div class="info">
+            <span>Phone</span>
+            <p id="phone"></p>
+        </div>
+
+        <div class="info">
+            <span>Farm Size</span>
+            <p id="farmSize"></p>
+        </div>
+
+        <div class="info">
+            <span>Soil pH</span>
+            <p id="soilPh"></p>
+        </div>
+
+        <div class="info">
+            <span>Soil Type</span>
+            <p id="soilType"></p>
+        </div>
+    </div>
+</div>
+
+<!-- ===== SCRIPT: LOAD LOGIN DATA ===== -->
+<script>
+document.getElementById("name").innerText =
+    localStorage.getItem("name") || "—";
+
+document.getElementById("location").innerText =
+    localStorage.getItem("location") || "—";
+
+document.getElementById("phone").innerText =
+    localStorage.getItem("phone") || "—";
+
+document.getElementById("farmSize").innerText =
+    (localStorage.getItem("farmSize") || "—") + " acres";
+
+document.getElementById("soilPh").innerText =
+    localStorage.getItem("soilPh") || "—";
+
+document.getElementById("soilType").innerText =
+    localStorage.getItem("soilType") || "—";
+</script>
+
+</body>
+</html>

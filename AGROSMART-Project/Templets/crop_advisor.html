@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌾 Crop Advisor - AgroSmart</title>   
+    <link rel="stylesheet" href="{{ url_for('static', filename='crop_advisor.css') }}">
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>🌾 AgroSmart</h2>
+        <ul>
+            <li><a href="{{ url_for('dashboard') }}">📊 Dashboard</a></li>
+<li><a href="{{ url_for('weather') }}">🌦 Weather</a></li>
+<li><a href="{{ url_for('crop_advisor') }}">🌱 Crop Advisor</a></li>
+<li><a href="{{ url_for('irrigation') }}">💧 Irrigation</a></li>
+<li><a href="{{ url_for('yield_calculator') }}">📈 Yield Calculator</a></li>
+<li><a href="{{ url_for('ai_diagnosis') }}">🌿 AI Diagnosis</a></li>
+<li><a href="{{ url_for('profile') }}" class="active">👨‍🌾 Profile</a></li>
+        </ul>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+        <h1>🌱 Crop Advisor</h1>
+        <p class="info-text">
+            Get crop recommendations based on soil type, season, rainfall, and pH level.
+        </p>
+
+        <!-- INPUT BOX -->
+        <div class="weather-box">
+            <h3>🧪 Farm Conditions</h3>
+
+            <label>Soil Type</label>
+            <select id="soilType">
+                <option value="">Select</option>
+                <option>Black Soil</option>
+                <option>Red Soil</option>
+                <option>Alluvial Soil</option>
+                <option>Laterite Soil</option>
+            </select>
+
+            <label>Growing Season</label>
+            <select id="season">
+                <option value="">Select</option>
+                <option>Kharif</option>
+                <option>Rabi</option>
+                <option>Zaid</option>
+            </select>
+
+            <label>Soil pH</label>
+            <input type="number" id="ph" step="0.1" placeholder="Eg: 6.5">
+
+            <label>Expected Annual Rainfall (mm)</label>
+            <input type="number" id="rainfall" placeholder="Eg: 800">
+
+            <button onclick="getCrop()">🌾 Get Crop Recommendation</button>
+        </div>
+
+        <!-- RESULT -->
+        <div class="weather-box advice">
+            <h3>✅ Suggested Crops</h3>
+            <p id="cropResult">
+                🌱 Enter farm details and click the button.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        function getCrop() {
+            let soil = document.getElementById("soilType").value;
+            let season = document.getElementById("season").value;
+            let ph = parseFloat(document.getElementById("ph").value);
+            let rain = parseInt(document.getElementById("rainfall").value);
+
+            let result = "";
+
+            if (!soil || !season || !ph || !rain) {
+                result = "⚠️ Please fill all farm details.";
+            }
+            else if (soil === "Black Soil" && season === "Kharif" && rain > 700) {
+                result = "🌾 Cotton, Soybean<br>🌱 Best for black soil with high rainfall.";
+            }
+            else if (soil === "Alluvial Soil" && season === "Rabi") {
+                result = "🌾 Wheat, Mustard<br>🌱 Fertile soil ideal for rabi crops.";
+            }
+            else if (soil === "Red Soil" && ph < 6.5) {
+                result = "🌾 Groundnut, Millets<br>🌱 Suitable for slightly acidic soil.";
+            }
+            else if (soil === "Laterite Soil") {
+                result = "🌾 Cashew, Coconut<br>🌱 Grows well in laterite regions.";
+            }
+            else {
+                result = "🌾 Maize, Pulses<br>🌱 Suitable under mixed conditions.";
+            }
+
+            document.getElementById("cropResult").innerHTML = result;
+        }
+    </script>
+
+</body>
+</html>
