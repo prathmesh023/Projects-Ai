@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Yield Calculator - AgroSmart</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='yield_calculator.css') }}">
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>AgroSmart</h2>
+    <ul>
+        <li><a href="{{ url_for('dashboard') }}">📊 Dashboard</a></li>
+<li><a href="{{ url_for('weather') }}">🌦 Weather</a></li>
+<li><a href="{{ url_for('crop_advisor') }}">🌱 Crop Advisor</a></li>
+<li><a href="{{ url_for('irrigation') }}">💧 Irrigation</a></li>
+<li><a href="{{ url_for('yield_calculator') }}">📈 Yield Calculator</a></li>
+<li><a href="{{ url_for('ai_diagnosis') }}">🌿 AI Diagnosis</a></li>
+<li><a href="{{ url_for('profile') }}" class="active">👨‍🌾 Profile</a></li>
+
+    </ul>
+</div>
+
+<div class="main">
+<h1>🌾 Yield Calculator</h1>
+
+<form id="yieldForm">
+
+<label>Area (in acres)</label>
+<input type="number" id="area" step="0.01" required>
+
+<label>Crop Type</label>
+<select id="cropType">
+    <option value="wheat">Wheat</option>
+    <option value="rice">Rice</option>
+    <option value="maize">Maize</option>
+    <option value="cotton">Cotton</option>
+</select>
+
+<label>Soil Type</label>
+<select id="soilType">
+    <option value="black">Black Soil</option>
+    <option value="alluvial">Alluvial Soil</option>
+    <option value="red">Red Soil</option>
+    <option value="laterite">Laterite Soil</option>
+</select>
+
+<label>Water / Rain Condition</label>
+<select id="water">
+    <option value="low">Low</option>
+    <option value="moderate">Moderate</option>
+    <option value="high">High</option>
+</select>
+
+<button type="submit">Calculate Yield</button>
+</form>
+
+<div id="yieldResult"></div>
+
+</div>
+
+<script>
+document.getElementById("yieldForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let area = parseFloat(document.getElementById("area").value);
+    let crop = document.getElementById("cropType").value;
+    let soil = document.getElementById("soilType").value;
+    let water = document.getElementById("water").value;
+
+    // Base yield (quintals per acre)
+    let baseYield = {
+        wheat: 20,
+        rice: 25,
+        maize: 22,
+        cotton: 18
+    }[crop];
+
+    // Soil factor
+    let soilFactor = {
+        black: 1.1,
+        alluvial: 1.2,
+        red: 0.9,
+        laterite: 0.8
+    }[soil];
+
+    // Water factor
+    let waterFactor = {
+        low: 0.8,
+        moderate: 1.0,
+        high: 1.1
+    }[water];
+
+    let totalYield = area * baseYield * soilFactor * waterFactor;
+
+    document.getElementById("yieldResult").innerHTML =
+        `<h3>📊 Estimated Yield</h3>
+        <p>
+        🌱 Crop: <b>${crop}</b><br>
+        🧪 Soil: <b>${soil}</b><br>
+        💧 Water: <b>${water}</b><br><br>
+        🌾 <b>Total Yield: ${totalYield.toFixed(2)} quintals</b>
+        </p>`;
+});
+</script>
+
+</body>
+</html>
