@@ -5,6 +5,6 @@ CREATE TABLE farmers (
     location VARCHAR(100),
     phone VARCHAR(20),
     farm_size FLOAT,
-    soil_ph FLOAT,
+    soil_ph FLOAT, 
     soil_type VARCHAR(50)
 );
