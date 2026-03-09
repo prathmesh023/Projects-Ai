@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, flash
-from database import get_connection
+from database import get_connection 
 
 app = Flask(__name__)
 app.secret_key = "super_secret_key"
