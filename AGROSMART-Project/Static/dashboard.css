@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  display: flex;
+  background: #f4f7f5;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 230px;
+  background: #2e7d32;
+  color: white;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.sidebar ul li a:hover {
+  background: #1b5e20;
+}
+
+/* MAIN */
+.main {
+  flex: 1;
+  padding: 30px;
+}
+
+/* STATUS */
+.status {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 12px;
+  border-radius: 6px;
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+.info-text {
+  margin-bottom: 20px;
+}
+
+/* FEATURES */
+.features {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.features a {
+  background: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.features a:hover {
+  background: #388e3c;
+}
+
+/* CARDS */
+.card-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 260px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.green-card {
+  background: #e8f5e9;
+}
+
+/* ALERT */
+.alert-box {
+  background: #fff3e0;
+  padding: 15px;
+  border-left: 6px solid #ff9800;
+  border-radius: 6px;
+  margin-bottom: 25px;
+}
+
+/* IMAGES */
+.image-section {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.image-section img {
+  width: 30%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}

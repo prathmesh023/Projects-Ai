@@ -1,0 +1,172 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ===== BODY ===== */
+body {
+    display: flex;
+    background-color: #f4f6f8;
+    color: #333;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    width: 240px;
+    min-height: 100vh;
+    background: #2e7d32;
+    color: white;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.sidebar ul li a:hover {
+    background-color: #1b5e20;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main {
+    flex: 1;
+    padding: 30px;
+}
+
+.main h1 {
+    margin-bottom: 10px;
+    color: #2e7d32;
+}
+
+.main p {
+    margin-bottom: 20px;
+}
+
+/* ===== BOX / CARD ===== */
+.weather-box,
+.form-box,
+#advice,
+#result,
+#yieldResult,
+#diagnosisResult {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* ===== FORM ELEMENTS ===== */
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #2e7d32;
+}
+
+/* ===== BUTTON ===== */
+button {
+    margin-top: 20px;
+    padding: 12px;
+    width: 100%;
+    background: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    background: #1b5e20;
+}
+
+/* ===== STATUS TAG ===== */
+.status {
+    padding: 10px;
+    border-radius: 6px;
+    margin: 15px 0;
+    width: fit-content;
+}
+
+.green {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+/* ===== FEATURE BUTTONS (Dashboard) ===== */
+.features {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.features a {
+    text-decoration: none;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    color: #2e7d32;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.features a:hover {
+    background: #e8f5e9;
+}
+
+/* ===== RESULT TEXT ===== */
+#result,
+#yieldResult,
+#diagnosisResult {
+    font-weight: bold;
+    color: #2e7d32;
+    margin-top: 15px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+    }
+}

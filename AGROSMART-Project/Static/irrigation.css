@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f9f4;
+    display: flex;
+}
+
+/* SIDEBAR – PROFILE STYLE */
+.sidebar {
+    width: 250px; /* a bit wider for profile look */
+    background: #2e7d32;
+    color: white;
+    min-height: 100vh;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.sidebar h2 {
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.sidebar .profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 3px solid #fff;
+    object-fit: cover;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar ul li {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+}
+
+/* MAIN */
+.main {
+    flex: 1;
+    padding: 30px;
+}
+
+.info-text {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* BOX */
+.box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.box label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.box input,
+.box select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.box button {
+    margin-top: 15px;
+    background: #2e7d32;
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.box button:hover {
+    background: #256428;
+}
+
+.result {
+    background: #e8f5e9;
+}
